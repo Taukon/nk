@@ -83,17 +83,9 @@ void terminal_putchar(uint8_t c){
       if(--t_column <= pmstr_len + 2){ 
         t_column = pmstr_len + 2; 
       }
-      
-      /*プロンプト時は以下は無効
-      t_column = VGA_WIDTH;
-      if(--t_row < 2){
-        t_row = 2;
-        t_column = 0;
-      }
-      */
     }
     
-    cursor(); //
+    cursor();
     return;
   }
   terminal_putentryat(c, t_color, t_column, t_row);
@@ -104,8 +96,8 @@ void terminal_putchar(uint8_t c){
       --t_row;
     }
   }
-  t_buffer[t_row * VGA_WIDTH + t_column] = vga_entry(' ', t_color); //cursor
-  cursor();//
+  t_buffer[t_row * VGA_WIDTH + t_column] = vga_entry(' ', t_color); //for cursor
+  cursor();
 }
 
 void terminal_write(const uint8_t* data, size_t size){
@@ -162,7 +154,7 @@ void terminal_writestring(const uint8_t* data){
   terminal_write1(data, strlen(data));
 }
 
-////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////
 
 #define timewidth 53
@@ -184,7 +176,7 @@ void terminal_write3(const uint8_t* data, size_t size){
 
 void time_writedown(int time){
   time_column = 67;
-  time_row = 0; //t_row;
+  time_row = 0;
   terminal_write3("timer: ", sh_strlen("timer: "));
   unsigned char* str;
   sh_itoa(time, str, 10);

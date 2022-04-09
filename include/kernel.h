@@ -4,12 +4,11 @@
 #include <stddef.h>
 #include <stdint.h>
 
-/* コンパイラが正しいターゲットを認識しているかの確認 */
+
 //#if defined(__linux__)
 //#error "You are not using a cross-compiler, you will most certainly run into trouble"
 //#endif
 
-/* 32-bit x86ターゲット以外のコンパイラを使用するとエラーになる */
 //#if !defined(__i386__)
 //#error "This tutorial needs to be compiled with a ix86-elf compiler"
 //#endif
@@ -43,7 +42,7 @@ void terminal_clock(void);
 
 //task.h
 void prompt_task(int*);
-void test(void);
+//void test(void);
 //
 
 #if defined(__cplusplus)

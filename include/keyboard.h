@@ -67,7 +67,7 @@ uint8_t getchar(void);
 uint8_t getscodeset(void);
 void change_codeset(uint8_t);
 void change_trate_delay(uint8_t);
-void switch_kb_led(uint8_t);     //追加
-void input_bufdata(uint8_t);     //追加
+void switch_kb_led(uint8_t);
+void input_bufdata(uint8_t);
 
 #endif _KEYBOARD_H_

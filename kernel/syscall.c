@@ -10,14 +10,14 @@ uint32_t syscall_interrupt(uint32_t syscall_num,
   switch (syscall_num) {
   case SYSCALL_WRITE:
 
-    //ここから追加
+    //
     sh_printf("\n-----call system_call------\n");
     sh_printf("systemcall number = %d\n", syscall_num);
     sh_printf("fd = %d\n", arg1);
     sh_printf("buffer = %s\n", arg2);
     sh_printf("byte = %d\n", arg3);
     sh_printf("---------------------------");
-    //ここまで
+    //
 
     break;
  

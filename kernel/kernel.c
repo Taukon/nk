@@ -29,7 +29,7 @@ void kernel_main(multiboot_info_t* mbt0, uint32_t magic){
   terminal_writestring("        NN      NN     KK     KK   \n");
   terminal_writestring("\n--------------------------------------------------\n");
 
-  prompt();    //追加d9
+  prompt();
 
 }
 
@@ -39,7 +39,7 @@ size_t strlen(const uint8_t* str){
   return len;
 }
 
-int input_line(char* prompt_name, char* cmdline){   //9
+int input_line(char* prompt_name, char* cmdline){  
   asm volatile("cli");
   if (!kb.len) {
     asm volatile("sti");
@@ -85,7 +85,7 @@ int executing(char* cmdline){
     terminal_clock();
     return 0;
   } else if(!sh_strcmp(cmdline, "write")){
-    sh_write(1, "test string", 12); //d14 fd:1 string: test string len:12
+    sh_write(1, "test string", 12); //fd:1 string: test string len:12
     return 0;
   } else if(!sh_strcmp(cmdline, "task")){
     sh_printf("\nSwitching to other task\n");
@@ -139,8 +139,8 @@ void terminal_clock(void){
 }
 
 /////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////
 
+/*
 void test(void){
 
     for(;;){
@@ -154,7 +154,7 @@ void test(void){
       yield();
     }
 }
-
+*/
 //////////////////////////////////
 
 
@@ -172,7 +172,7 @@ int executing_task(char* cmdline, int* log_times){
     sh_printf("\ntime: %d",pr_second());
     //terminal_clock();
     return 0;
-  } else if(!sh_strcmp(cmdline, "timer")){ //d13timer
+  } else if(!sh_strcmp(cmdline, "timer")){ 
     terminal_timer(700);
     //time_writedown(pr_timer());
     
@@ -181,7 +181,7 @@ int executing_task(char* cmdline, int* log_times){
     terminal_clock();
     return 0;
   } else if(!sh_strcmp(cmdline, "write")){
-    sh_write(1, "test string", 12); //d14 fd:1 string: test string len:12
+    sh_write(1, "test string", 12); // fd:1 string: test string len:12
     return 0;
   } else if(!sh_strcmp(cmdline, "exit")){
     sh_printf("\n   ------------------- logout ------------------\n");

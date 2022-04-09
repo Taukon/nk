@@ -2,7 +2,7 @@
 #define _INETRRUPT_H_
 
 #include "pic.h"
-#include "pit.h"   //d11: count
+#include "pit.h"
 
 #include <stdint.h>
 #include <stddef.h>
@@ -10,11 +10,11 @@
 void interrupt_done(void);
 
 //irq
-void timer_interrupt(void); //d11: timer
+void timer_interrupt(void);
 void keyboard_interrupt(void);
 
 //irqnum         
-#define irq0 0x60 //d11: timer irq                                                                                                                                                       
+#define irq0 0x60 //timer irq                                                                                                                                                       
 #define irq1 0x61
 
 

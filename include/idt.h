@@ -11,9 +11,9 @@ extern void load_idtr(uint32_t);
 #endif
 
 
-extern as_keyboard_interrupt(void);     //追加
-extern as_timer_interrupt(void);    //d11
-extern as_software_interrupt(void); //追加d14:syscall
+extern as_keyboard_interrupt(void);
+extern as_timer_interrupt(void);
+extern as_software_interrupt(void);
 
 typedef struct{
   uint16_t offset_low;
